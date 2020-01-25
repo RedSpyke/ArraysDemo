@@ -15,15 +15,32 @@ public class Main {
             System.out.println("Declare element located at index position " + i + "\r");
             MyArr[i] = input.nextInt();
         }
-        printArray(MyArr);
+        //printArray(MyArr);
+        resizeArray(MyArr);
+
        // smallestNumber(MyArr);
         //largestNumber(MyArr);
-        sortArray(MyArr);
-       // reverseArray(MyArr);
+       // sortArray(MyArr);
+       //reverseArray(MyArr);
         // averageValueNumbersArray (MyArr);
         //sortArrayDescendingOrder(MyArr);
         // arrayReverseSorting2(MyArr);
     }
+
+    // resize array by doubling the elements
+    public static int [] resizeArray (int [] MyArr) {
+
+        int [] resizedArray = new int [MyArr.length *2];
+
+        for (int i = 0; i < MyArr.length ; i++){
+           resizedArray [i] = MyArr[i];
+        }
+        for (int i = 0; i < resizedArray.length; i++) {
+            System.out.println("Element " + i + " >> value is " + resizedArray[i]);
+        }
+        return  resizedArray;
+    }
+
         public static void printArray (int [] MyArr){
             for (int i = 0; i < MyArr.length; i++) {
                 System.out.println("Element " + i + " >> value is " + MyArr[i]);
