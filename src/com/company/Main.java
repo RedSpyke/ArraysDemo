@@ -1,5 +1,4 @@
 package com.company;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -15,23 +14,61 @@ public class Main {
             System.out.println("Declare element located at index position " + i + "\r");
             MyArr[i] = input.nextInt();
         }
+
+        //searchArray(MyArr, 27);
+        splitSearchArray(MyArr, 27);
+
         //printArray(MyArr);
-        resizeArray(MyArr);
+        //resizeArray(MyArr);
 
        // smallestNumber(MyArr);
-        //largestNumber(MyArr);
-       // sortArray(MyArr);
+       // largestNumber(MyArr);
+       //sortArray(MyArr);
        //reverseArray(MyArr);
         // averageValueNumbersArray (MyArr);
         //sortArrayDescendingOrder(MyArr);
         // arrayReverseSorting2(MyArr);
     }
+    // search for a number in an array
 
-    // resize array by doubling the elements
+    public static boolean searchArray (int [] MyArr, int searchedNumber){
+
+        for (int i = 0; i < MyArr.length ; i++) {
+            if (MyArr[i] == searchedNumber){
+                System.out.println(searchedNumber + " was found in the array at index position: "+ i );
+                return true;
+            }
+        }
+        System.out.println(searchedNumber + " was not found in the array");
+        return false;
+    }
+    //  split array search
+
+    public static boolean splitSearchArray (int [] MyArr, int searchedNumber) {
+        for (int i = 0; i <= MyArr.length/2 ; i++) {
+            if (MyArr[i] == searchedNumber){
+                System.out.println(searchedNumber + " was found in the array at index position: "+ i );
+                System.out.println(searchedNumber + " was found in the first half of the array");
+                return true;
+            }
+        }
+        for (int i = MyArr.length - 1 ; i >= MyArr.length/2 ; i--) {
+            if (MyArr[i] == searchedNumber){
+                System.out.println(searchedNumber + " was found in the array at index position: "+ i );
+                System.out.println(searchedNumber + " was found in the second half of the array");
+                return true;
+            }
+        }
+
+
+        System.out.println(searchedNumber + " was not found in the array");
+        return false;
+    }
+
+
+    // resize array by doubling the elements in array
     public static int [] resizeArray (int [] MyArr) {
-
         int [] resizedArray = new int [MyArr.length *2];
-
         for (int i = 0; i < MyArr.length ; i++){
            resizedArray [i] = MyArr[i];
         }
@@ -40,7 +77,6 @@ public class Main {
         }
         return  resizedArray;
     }
-
         public static void printArray (int [] MyArr){
             for (int i = 0; i < MyArr.length; i++) {
                 System.out.println("Element " + i + " >> value is " + MyArr[i]);
@@ -89,7 +125,7 @@ public class Main {
             for (int i = 0; i < MyArr.length; i++) {
                 System.out.println("Element " + i + " >> value is " + sortedArray[i]);
             }
-            System.out.println("#########################################");
+            System.out.println("#######################################################");
             return  sortedArray;
         }
         public static int [] reverseArray (int [] MyArr){
@@ -97,7 +133,7 @@ public class Main {
         int j = MyArr.length;
         for (int i = 0; i < reversedArray.length ; i++){
             reversedArray [j -1] = MyArr [i];
-            j -=1;
+            j --;
 
         }
             // print reversed array
